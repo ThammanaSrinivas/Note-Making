@@ -8,8 +8,23 @@
   margin-top: 30px;
 }
 
+.save {
+  display: inline-block;
+  width: 64px;
+}
+
+.save-btn {
+  display: block;
+  margin-top: 30px;
+}
+
 .options {
   display: flex;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-around;
 }
 
 .bottom-container {
@@ -36,6 +51,21 @@
 }
 
 .add:hover .addTipText {
+  visibility: visible;
+}
+
+.saveTipText {
+  visibility: hidden;
+  background-color: #000000;
+  color: white;
+  border-radius: 6px; 
+  padding: 5px 0;
+  text-align: center;
+  position: absolute;
+  z-index: 1;              /* z-axis */
+}
+
+.save:hover .saveTipText {
   visibility: visible;
 }
 

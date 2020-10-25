@@ -52,8 +52,8 @@ let saveNotes = function() {
 }
 
 showInstructions = function() {
-  let listOfInstructions = document.getElementsByClassName("listOfInstructions")[0];  // because i know the length of the array is 1
-  listOfInstructions.style.visibility = "visible";  
+  let listOfInstructions = document.getElementsByClassName("listOfInstructions");  
+  listOfInstructions[0].style.visibility = "visible";  // because i know the length of the array is 1
   let body = document.getElementsByTagName("BODY")[0];
   body.style.overflowY = "hidden";
   

@@ -48,7 +48,21 @@ let saveNotes = function() {
     localStorage.removeItem("head"+i);
     localStorage.removeItem("body"+i);
   }
-  alert("successful");
+  alert("Notebooks are saved successfully");
+}
+
+showInstructions = function() {
+  let listOfInstructions = document.getElementsByClassName("listOfInstructions")[0];  // because i know the length of the array is 1
+  listOfInstructions.style.visibility = "visible";  
+  let body = document.getElementsByTagName("BODY")[0];
+  body.style.overflowY = "hidden";
+  
+
+  let instructionCloseBtn = document.querySelector(".instruction-close-btn");
+  instructionCloseBtn.addEventListener('click',function() {
+    listOfInstructions[0].style.visibility = "hidden";
+    body.style.overflowY = "scroll";
+  });
 }
 
 //load notes
@@ -62,3 +76,6 @@ add.addEventListener('click',createNewNote);
 
 let save = document.querySelector(".save-btn");
 save.addEventListener('click',saveNotes);
+
+let instructions = document.querySelector(".instructions-btn");
+instructions.addEventListener('click',showInstructions);

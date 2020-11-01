@@ -92,36 +92,30 @@
   visibility: visible;
 }
 
-.noteHead {
-  height: 40px;
-}
-
 .noteHeadInput {
+  height: 30px;
+  width: 220px;
   font-weight: bold;  
   font-size: 18px;
-  padding: 0;
+  padding: 6px;
   text-align: center;
   background-color: #bb2205;
-  overflow-y: scroll;
-  width: 100%;
-  height: 100%;
   resize: none;
   border: none;
   overflow-x: hidden;
-}
-
-.noteBody {
-  height: 250px;
+  overflow-y: scroll;
+  vertical-align: top;   /* the elements inside div(note) are aligned to the top */
 }
 
 .noteBodyInput {
-  padding: 0;
+  Height: 250px;
+  width: 220px;
+  padding: 6px;
   background-color: #f5a25d;
-  width: 100%;
-  height: 100%;
   resize: none;
   border: none;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {

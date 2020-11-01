@@ -11,12 +11,8 @@ let createNewNote = function(event=null,head='',body='') {
           <span class="closeTipText">Delete</span> 
         </div>
       </div>
-      <div class="noteHead"> 
-        <textarea class="noteHeadInput"></textarea> 
-      </div> 
-      <div class="noteBody"> 
-        <textarea class="noteBodyInput"></textarea> 
-      </div> 
+      <textarea class="noteHeadInput"></textarea> 
+      <textarea class="noteBodyInput"></textarea> 
     </div>
   `;
 

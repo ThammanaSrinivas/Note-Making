@@ -1,16 +1,25 @@
+let moveSelected = false;
+let sourceIdx = 0;
+let destinationIdx = 0;
+
 let createNewNote = function(event=null,head='',body='') {
   // for add button 'click' (mouseClick Object) is 1st parameter hence event is extremely important 
   // even though it is not used
 
   let newNote = document.createElement('div');
+  newNote.classList.add("note");
   newNote.innerHTML = `
-    <div class="note"> 
-      <div class="options">
-        <div class="close">
-          <img class="close-btn" src="images/close.png" alt="close"> 
-          <span class="closeTipText">Delete</span> 
-        </div>
+    <div class="options">
+      <div class="move">
+        <img class="move-btn" src="images/move.png" alt="move"> 
+        <span class="moveTipText">Move</span> 
       </div>
+      <div class="close">
+        <img class="close-btn" src="images/close.png" alt="close"> 
+        <span class="closeTipText">Delete</span> 
+      </div>
+    </div>
+    <div class="editSection">
       <textarea class="noteHeadInput"></textarea> 
       <textarea class="noteBodyInput"></textarea> 
     </div>
@@ -27,6 +36,64 @@ let createNewNote = function(event=null,head='',body='') {
   closeButton.addEventListener("click",function() {
     newNote.remove();
   });
+
+  moveNotes = function() {
+    let notesArray = document.querySelectorAll(".note"); 
+    let length = notesArray.length;
+    // to find sourceIdx
+    for(let i=0;i<length;++i) {
+      if(newNote == notesArray[i]) {
+        sourceIdx = i;
+        break;
+      }  
+    }
+    moveSelected = true;
+  };
+
+  ifMoveIsActivated = function() {
+    if(moveSelected) {
+      let notesArray = document.querySelectorAll(".note"); 
+      let length = notesArray.length;
+      //to find destinationIdx
+      for(let i=0;i<length;++i) {
+        if(newNote == notesArray[i]) {   
+          destinationIdx = i;
+          break;
+        }
+      }
+      
+      // the moving part
+      let tempHead = notesArray[sourceIdx].querySelector(".noteHeadInput").value;
+      let tempBody = notesArray[sourceIdx].querySelector(".noteBodyInput").value;
+      //case i (if source<dest)
+      if(sourceIdx<destinationIdx) {
+        let i=sourceIdx;
+        for(;i<destinationIdx;++i) {
+          notesArray[i].querySelector(".noteHeadInput").value = notesArray[i+1].querySelector(".noteHeadInput").value;
+          notesArray[i].querySelector(".noteBodyInput").value = notesArray[i+1].querySelector(".noteBodyInput").value;
+        } 
+        notesArray[i].querySelector(".noteHeadInput").value = tempHead;
+        notesArray[i].querySelector(".noteBodyInput").value = tempBody;
+      }
+      //case ii (if sourceIdx>=destinationIdx)
+      else {
+        let i=sourceIdx;
+        for(;i>destinationIdx;--i) {
+          notesArray[i].querySelector(".noteHeadInput").value = notesArray[i-1].querySelector(".noteHeadInput").value;
+          notesArray[i].querySelector(".noteBodyInput").value = notesArray[i-1].querySelector(".noteBodyInput").value;
+        } 
+        notesArray[i].querySelector(".noteHeadInput").value = tempHead;
+        notesArray[i].querySelector(".noteBodyInput").value = tempBody;
+      }
+      moveSelected = false;
+    } 
+  };
+
+  newNote.querySelector(".editSection").addEventListener("click",ifMoveIsActivated);
+
+  let moveButton = newNote.querySelector(".move-btn");
+  moveButton.addEventListener("click",moveNotes);
+
 };
 
 let saveNotes = function() {
@@ -74,4 +141,4 @@ let save = document.querySelector(".save-btn");
 save.addEventListener('click',saveNotes);
 
 let instructions = document.querySelector(".instructions-btn");
-instructions.addEventListener('click',showInstructions);
+instructions.addEventListener('click',showInstructions); 

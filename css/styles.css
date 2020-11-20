@@ -45,6 +45,8 @@
 
 .options {
   display: flex;
+  justify-content: space-between;
+  width: 220px;
 }
 
 .top-container {
@@ -65,7 +67,7 @@
 }
 
 /* Refer : https://www.w3schools.com/css/css_tooltip.asp for tool tip */
-.addTipText, .instructionsTipText, .saveTipText, .closeTipText {
+.addTipText, .instructionsTipText, .saveTipText, .closeTipText, .moveTipText {
   visibility: hidden;
   background-color: #000000;
   color: white;
@@ -89,6 +91,10 @@
 }
 
 .close:hover .closeTipText {
+  visibility: visible;
+}
+
+.move:hover .moveTipText {
   visibility: visible;
 }
 

@@ -15,6 +15,9 @@ listOfInstructions.innerHTML =`
       To add a note select plus button. <img width="32px" src="images/plus.png" alt="">
       <br><br>
       To remove a note select close button. <img width="32px" src="images/close.png" alt="">
+      <br><br>
+      To move(not swap) a note select move button <img width="32px" src="images/move.png" alt=""> and select the note where the 
+       note has to be moved ( just like drag and drop ).
       <hr>
     </div>
 

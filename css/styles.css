@@ -25,7 +25,7 @@
   height: 88vh;
   padding: 6vh 6vw;
   overflow-y: scroll;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(70, 69, 69, 0.8);
   color: white;
   visibility: hidden;
   z-index: 2;
@@ -64,12 +64,33 @@
 .note {
   width: 220px;
   margin: 10px 10px;
+  user-select: none; /* to prevent text selection */
+  cursor: move; /* to indicate that the note can be moved */ 
+}
+
+.note .move-btn {
+    cursor: move;
+    user-select: none;
+}
+
+.note.dragging {
+    opacity: 0.6;
+    background-color: #f0f0f0;
+}
+
+.note.dragover {
+    border: 2px dashed #666;
+}
+
+.note.dragging {
+    opacity: 0.5;
+    transform: scale(1.05);
 }
 
 /* Refer : https://www.w3schools.com/css/css_tooltip.asp for tool tip */
 .addTipText, .instructionsTipText, .saveTipText, .closeTipText, .moveTipText {
   visibility: hidden;
-  background-color: #000000;
+  background-color: #302e2e;
   color: white;
   border-radius: 6px; 
   padding: 5px 0;

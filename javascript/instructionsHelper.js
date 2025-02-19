@@ -16,8 +16,7 @@ listOfInstructions.innerHTML =`
       <br><br>
       To remove a note select close button. <img width="32px" src="images/close.png" alt="">
       <br><br>
-      To move(not swap) a note select move button <img width="32px" src="images/move.png" alt=""> and select the note where the 
-       note has to be moved ( just like drag and drop ).
+      To drag and drop hold <img width="32px" src="images/move.png" alt=""> and select the desired note.
       <hr>
     </div>
 
